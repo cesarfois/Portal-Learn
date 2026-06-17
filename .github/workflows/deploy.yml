@@ -22,14 +22,14 @@ jobs:
           port: ${{ secrets.VPS_PORT || 22 }}
           script: |
             # Create deployment directory if it doesn't exist
-            if [ ! -d "/var/www/portal-learn" ]; then
+            if [ ! -d "/app/portal-learn" ]; then
               echo "Directory does not exist. Creating and cloning..."
-              mkdir -p /var/www
-              git clone https://github.com/cesarfois/Portal-Learn.git /var/www/portal-learn
-              cd /var/www/portal-learn
+              mkdir -p /app
+              git clone https://github.com/cesarfois/Portal-Learn.git /app/portal-learn
+              cd /app/portal-learn
             else
               echo "Directory exists. Navigating and pulling latest changes..."
-              cd /var/www/portal-learn
+              cd /app/portal-learn
               git checkout main
               git pull origin main
             fi
