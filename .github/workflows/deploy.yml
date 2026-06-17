@@ -1,0 +1,43 @@
+name: CD - Deploy to VPS Contabo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          script: |
+            # Create deployment directory if it doesn't exist
+            if [ ! -d "/var/www/portal-learn" ]; then
+              echo "Directory does not exist. Creating and cloning..."
+              mkdir -p /var/www
+              git clone https://github.com/cesarfois/Portal-Learn.git /var/www/portal-learn
+              cd /var/www/portal-learn
+            else
+              echo "Directory exists. Navigating and pulling latest changes..."
+              cd /var/www/portal-learn
+              git checkout main
+              git pull origin main
+            fi
+
+            # Build and deploy with Docker Compose
+            echo "Rebuilding and restarting Docker containers..."
+            docker compose up -d --build
+            
+            # Clean unused images to optimize server space
+            echo "Pruning unused Docker assets..."
+            docker image prune -f
