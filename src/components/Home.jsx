@@ -140,10 +140,8 @@ export default function Home({ modules, onSelectModule }) {
             >
               <div className="home-card-header">
                 <span className="home-card-num">Módulo {index + 1}</span>
-                {mod.isFAQ ? (
+                {mod.isFAQ && (
                   <span className="home-card-tag faq-tag">Dúvidas</span>
-                ) : (
-                  <span className="home-card-tag module-tag">SaaS</span>
                 )}
               </div>
               
