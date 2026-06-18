@@ -64,17 +64,13 @@ export default function Home({ modules, onSelectModule }) {
       {/* SaaS Hero Banner */}
       <section className="hero-banner">
         <div className="hero-left">
-          <span className="hero-tag">DocuWare Learning Portal</span>
+          <span className="hero-tag">Portal de Onboarding</span>
           <h1 className="hero-title">
-            DocuWare Knowledge Portal
+            Bem-vindo ao DocuWare
           </h1>
           <p className="hero-subtitle">
-            Aprenda os principais recursos do DocuWare: captura, organização, pesquisa e automação de documentos em um único lugar.
+            Aprenda os principais recursos.
           </p>
-          <a href="#modules" onClick={scrollToGrid} className="hero-btn">
-            Explorar módulos
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
         </div>
         <div className="hero-right">
           <img 
@@ -83,6 +79,9 @@ export default function Home({ modules, onSelectModule }) {
             className="hero-illustration"
           />
         </div>
+        <div className="hero-glow"></div>
+        <div className="hero-circle-1"></div>
+        <div className="hero-circle-2"></div>
       </section>
 
       {/* Welcome Features Area */}

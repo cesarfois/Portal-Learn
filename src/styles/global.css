@@ -505,30 +505,32 @@ body {
   flex-direction: column-reverse;
   align-items: center;
   gap: 1.5rem;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #093160 0%, #001f42 100%);
   border-radius: 20px;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: var(--shadow-lg);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 20px 40px -15px rgba(0, 31, 66, 0.3);
   color: white;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @media (min-width: 1024px) {
   .hero-banner {
     flex-direction: row;
-    padding: 1.5rem 3rem;
-    gap: 3rem;
+    padding: 3.5rem 4rem;
+    gap: 4rem;
   }
 }
 
 .hero-left {
-  flex: 1.2;
+  flex: 1.3;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  z-index: 2;
 }
 
 @media (min-width: 1024px) {
@@ -540,84 +542,102 @@ body {
 
 .hero-tag {
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  font-size: 0.7rem;
+  background: rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.4);
+  color: #60a5fa;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.25rem 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
   border-radius: 20px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
 }
 
 .hero-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+  background: linear-gradient(to right, #ffffff, #e2e8f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 1.85rem;
+    font-size: 2.75rem;
   }
 }
 
 .hero-subtitle {
-  font-size: 0.925rem;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 1rem;
-  max-width: 540px;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+  max-width: 600px;
   line-height: 1.5;
-}
-
-.hero-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: white;
-  color: var(--color-primary);
-  padding: 0.5rem 1.15rem;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: var(--transition-smooth);
-  cursor: pointer;
-}
-
-.hero-btn:hover {
-  transform: translateY(-2px);
-  background-color: var(--color-hover);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.hero-btn svg {
-  transition: transform 0.2s ease;
-}
-
-.hero-btn:hover svg {
-  transform: translateX(3px);
+  font-weight: 400;
 }
 
 .hero-right {
-  flex: 0.8;
+  flex: 0.7;
   width: 100%;
-  max-width: 200px;
+  max-width: 260px;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .hero-illustration {
   width: 100%;
-  max-height: 130px;
   height: auto;
-  filter: drop-shadow(0px 10px 20px rgba(0, 59, 122, 0.3));
+  filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.25));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Premium background decorative elements */
+.hero-glow {
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 80%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0) 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-circle-1 {
+  position: absolute;
+  bottom: -40px;
+  right: 10%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-circle-2 {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Features Indicators Area */
